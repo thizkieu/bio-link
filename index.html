@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio Link | Nguyễn Thị Thúy Kiều</title>
+    <!-- Font Quicksand & Icons FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: radial-gradient(circle at top left, #1c1c24 0%, #0d0d0d 60%, #050505 100%);
+            font-family: 'Quicksand', sans-serif;
+            color: #d1d1d1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Profile Card Glassmorphism */
+        .profile-card {
+            background: rgba(22, 22, 26, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 28px;
+            width: 100%;
+            max-width: 440px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95),
+                        inset 0 1px 1px rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+        }
+
+        /* Ticker Chạy Chữ Đầu Card */
+        .ticker-wrap {
+            width: 100%;
+            background: rgba(12, 12, 15, 0.9);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 8px 0;
+            font-size: 12px;
+            color: #888;
+        }
+
+        .ticker {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+
+        .ticker-item {
+            display: inline-block;
+            padding: 0 18px;
+            font-weight: 500;
+        }
+
+        .ticker-item span {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Banner Header */
+        .header-bg {
+            background-color: #08080a;
+            background-image: 
+                radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(13, 13, 13, 0.2), rgba(22, 22, 26, 1));
+            background-size: 24px 24px, 100% 100%;
+            height: 120px;
+            position: relative;
+        }
+
+        /* Avatar Container */
+        .avatar-container {
+            text-align: center;
+            margin-top: -65px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .avatar-wrapper {
+            display: inline-block;
+            position: relative;
+            border-radius: 50%;
+            padding: 4px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.05));
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+        }
+
+        .avatar {
+            width: 115px;
+            height: 115px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 3px solid #141417;
+            transition: transform 0.4s ease;
+        }
+
+        .avatar-wrapper:hover .avatar {
+            transform: scale(1.04);
+        }
+
+        /* Section Info */
+        .info {
+            text-align: center;
+            padding: 15px 24px 30px;
+        }
+
+        h1 {
+            color: #ffffff;
+            margin: 10px 0 4px;
+            font-size: 23px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+
+        .tagline {
+            font-size: 13.5px;
+            color: #999;
+            font-weight: 500;
+            margin-bottom: 22px;
+            padding: 0 10px;
+            line-height: 1.4;
+        }
+
+        /* Block Nội Dung */
+        .block {
+            background: rgba(30, 30, 35, 0.65);
+            border-radius: 16px;
+            padding: 18px;
+            margin-bottom: 14px;
+            text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-left: 3px solid #666;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .block:hover {
+            border-left-color: #ffffff;
+            background: rgba(38, 38, 45, 0.85);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+        }
+
+        .block h3 {
+            margin: 0 0 10px;
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+
+        .block h3 i {
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        .block p {
+            margin: 0;
+            font-size: 13.5px;
+            line-height: 1.65;
+            text-align: justify;
+            color: #b0b0b0;
+        }
+
+        /* Danh Sách */
+        ul {
+            padding-left: 0;
+            list-style: none;
+            margin: 0;
+            font-size: 13.5px;
+            line-height: 1.6;
+            color: #b0b0b0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            padding-left: 22px;
+            position: relative;
+        }
+
+        li:last-child {
+            margin-bottom: 0;
+        }
+
+        li i.list-icon {
+            position: absolute;
+            left: 0;
+            top: 4px;
+            color: #777;
+            font-size: 12px;
+        }
+
+        li b {
+            color: #e0e0e0;
+        }
+
+        /* Nút Liên Kết */
+        .social-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 22px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, rgba(42, 42, 48, 0.9), rgba(30, 30, 35, 0.9));
+            color: #ffffff;
+            text-decoration: none;
+            padding: 13px 20px;
+            border-radius: 14px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            background: rgba(52, 52, 60, 1);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        }
+
+        .btn i {
+            font-size: 16px;
+        }
+
+        /* Footer Status */
+        .footer-status {
+            margin-top: 22px;
+            font-size: 12px;
+            color: #666;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            background-color: #777;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-card">
+        <!-- Ticker Chạy Chữ Trạng Thái -->
+        <div class="ticker-wrap">
+            <div class="ticker">
+                <div class="ticker-item">💡 Trạng thái: <span>Đang phát triển Dự án & Khám phá Công nghệ mới</span></div>
+                <div class="ticker-item">📍 Địa điểm: <span>TP. Hồ Chí Minh</span></div>
+                <div class="ticker-item">⚡ Định hướng: <span>Project Management & Digital Solutions</span></div>
+                <!-- Nội dung lặp lại để tạo hiệu ứng chạy liên tục vô tận -->
+                <div class="ticker-item">💡 Trạng thái: <span>Đang phát triển Dự án & Khám phá Công nghệ mới</span></div>
+                <div class="ticker-item">📍 Địa điểm: <span>TP. Hồ Chí Minh</span></div>
+                <div class="ticker-item">⚡ Định hướng: <span>Project Management & Digital Solutions</span></div>
+            </div>
+        </div>
+
+        <div class="header-bg"></div>
+
+        <div class="avatar-container">
+            <div class="avatar-wrapper">
+                <img src="https://i.postimg.cc/HjNg8ndT/1787644112048-205882546888002341-8169423371314609313-089791827ad52071a6bbb6b1db22485c.jpg" alt="Nguyễn Thúy Kiều" class="avatar">
+            </div>
+        </div>
+
+        <div class="info">
+            <h1>Nguyễn Thị Thúy Kiều</h1>
+            <div class="tagline">Sinh viên | Đam mê Phát triển Dự án & Khám phá Công nghệ</div>
+
+            <div class="block">
+                <h3><i class="fa-regular fa-user"></i> Về tôi</h3>
+                <p>Xin chào! Mình là Thúy Kiều. Mình luôn yêu thích việc lập kế hoạch, sắp xếp mọi thứ ngăn nắp và biến các ý tưởng thành hiện thực thông qua các đồ án và dự án thực tế. Mình thích khám phá những vùng đất mới, trải nghiệm các nền tảng số và luôn tìm kiếm cơ hội để nâng cấp bản thân mỗi ngày.</p>
+            </div>
+
+            <div class="block">
+                <h3><i class="fa-regular fa-address-book"></i> Thông tin liên hệ</h3>
+                <ul>
+                    <li><i class="fa-regular fa-calendar list-icon"></i><b>Năm sinh:</b> 24/10/2005</li>
+                    <li><i class="fa-solid fa-phone list-icon"></i><b>Điện thoại / Zalo:</b> 0918 346 170</li>
+                    <li><i class="fa-regular fa-envelope list-icon"></i><b>Email:</b> thuykieukk0101@gmail.com</li>
+                    <li><i class="fa-solid fa-location-dot list-icon"></i><b>Khu vực:</b> Phường Thới An, Quận 12, TP.HCM</li>
+                </ul>
+            </div>
+
+            <div class="block">
+                <h3><i class="fa-solid fa-code-fork"></i> Kỹ năng & Thế mạnh</h3>
+                <ul>
+                    <li><i class="fa-solid fa-chevron-right list-icon"></i><b>Quản lý & Vận hành:</b> Yêu thích sự logic, rành mạch. Thường xuyên ứng dụng các công cụ như Jira, Trello để tối ưu hóa tiến độ công việc và phát triển đồ án.</li>
+                    <li><i class="fa-solid fa-chevron-right list-icon"></i><b>Năng động & Linh hoạt:</b> Bắt nhịp nhanh với các xu hướng mới, từ việc sử dụng các dịch vụ tiện ích số đến việc di chuyển, học tập.</li>
+                    <li><i class="fa-solid fa-chevron-right list-icon"></i><b>Giao tiếp:</b> Cởi mở, thích lắng nghe và xây dựng các mối quan hệ tích cực.</li>
+                </ul>
+            </div>
+
+            <div class="social-buttons">
+                <a href="https://www.facebook.com/share/1GPUCeFit1/" target="_blank" class="btn"><i class="fa-brands fa-facebook"></i> Facebook Cá Nhân</a>
+                <a href="#" target="_blank" class="btn"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                <a href="https://www.tiktok.com/@nguyenkieu077?_r=1&_t=ZS-99Af3ZfH9nh" target="_blank" class="btn"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+                <a href="https://github.com/thizkieu" target="_blank" class="btn"><i class="fa-brands fa-github"></i> Đồ án trên GitHub</a>
+            </div>
+
+            <div class="footer-status">
+                <span class="status-dot"></span> Profile active • Nguyễn Thị Thúy Kiều
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
