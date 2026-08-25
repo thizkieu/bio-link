@@ -16,8 +16,8 @@
         }
 
         body {
-            /* Giữ nguyên màu chủ đạo */
-            background: radial-gradient(circle at top left, #1c1c24 0%, #0d0d0d 60%, #050505 100%);
+            /* Nền tối bí ẩn */
+            background: radial-gradient(circle at top right, #1f1c2c 0%, #000000 70%, #0a0a0a 100%);
             font-family: 'Quicksand', sans-serif;
             color: #d1d1d1;
             display: flex;
@@ -28,31 +28,31 @@
             overflow-x: hidden;
         }
 
-        /* Profile Card Glassmorphism */
+        /* Profile Card - Glassmorphism sang trọng */
         .profile-card {
-            background: rgba(22, 22, 26, 0.85);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            background: rgba(20, 20, 25, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border-radius: 28px;
             width: 100%;
-            max-width: 460px; /* Nới rộng chút xíu cho chữ thoải mái */
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95),
-                        inset 0 1px 1px rgba(255, 255, 255, 0.1);
+            max-width: 460px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9),
+                        inset 0 1px 2px rgba(255, 255, 255, 0.15);
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
         }
 
-        /* Ticker Chạy Chữ - Xóa Emoji, Dùng Icon Đơn Sắc */
+        /* Ticker Chạy Chữ - Phát sáng nhẹ */
         .ticker-wrap {
             width: 100%;
-            background: rgba(12, 12, 15, 0.9);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            background: rgba(10, 10, 12, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             overflow: hidden;
             white-space: nowrap;
-            padding: 8px 0;
-            font-size: 12.5px;
-            color: #888;
+            padding: 10px 0;
+            font-size: 13px;
+            color: #999;
         }
 
         .ticker {
@@ -62,13 +62,14 @@
 
         .ticker-item {
             display: inline-block;
-            padding: 0 18px;
+            padding: 0 20px;
             font-weight: 500;
         }
 
         .ticker-item i {
-            color: #aaa;
-            margin-right: 4px;
+            color: #b088f9;
+            margin-right: 6px;
+            text-shadow: 0 0 8px rgba(176, 136, 249, 0.6);
         }
 
         .ticker-item span {
@@ -83,19 +84,19 @@
 
         /* Banner Header */
         .header-bg {
-            background-color: #08080a;
+            background-color: #050505;
             background-image: 
-                radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(13, 13, 13, 0.2), rgba(22, 22, 26, 1));
-            background-size: 24px 24px, 100% 100%;
-            height: 120px;
+                radial-gradient(rgba(176, 136, 249, 0.15) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(20, 20, 25, 1));
+            background-size: 20px 20px, 100% 100%;
+            height: 130px;
             position: relative;
         }
 
         /* Avatar Container */
         .avatar-container {
             text-align: center;
-            margin-top: -65px;
+            margin-top: -70px;
             position: relative;
             z-index: 2;
         }
@@ -104,96 +105,108 @@
             display: inline-block;
             position: relative;
             border-radius: 50%;
-            padding: 4px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.05));
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+            padding: 5px;
+            background: linear-gradient(135deg, #b088f9, #ff7eb3);
+            box-shadow: 0 10px 30px rgba(176, 136, 249, 0.4);
+            animation: floatAvatar 4s ease-in-out infinite;
+        }
+
+        @keyframes floatAvatar {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
         }
 
         .avatar {
-            width: 115px;
-            height: 115px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             object-fit: cover;
             display: block;
-            border: 3px solid #141417;
-            transition: transform 0.4s ease;
+            border: 4px solid #141419;
+            transition: transform 0.5s ease;
         }
 
         .avatar-wrapper:hover .avatar {
-            transform: scale(1.04) rotate(3deg);
+            transform: scale(1.05) rotate(5deg);
         }
 
         /* Section Info */
         .info {
             text-align: center;
-            padding: 15px 24px 30px;
+            padding: 10px 24px 35px;
         }
 
         h1 {
-            color: #ffffff;
-            margin: 10px 0 4px;
-            font-size: 24px;
+            margin: 15px 0 6px;
+            font-size: 26px;
             font-weight: 700;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.5px;
+            /* Gradient Text lấp lánh */
+            background: linear-gradient(to right, #ffffff, #ffb8d1, #b088f9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0px 4px 15px rgba(176, 136, 249, 0.3);
         }
 
         .tagline {
-            font-size: 13.5px;
-            color: #999;
+            font-size: 14px;
+            color: #a0a0a0;
             font-weight: 500;
-            margin-bottom: 22px;
+            margin-bottom: 25px;
             padding: 0 10px;
-            line-height: 1.4;
+            line-height: 1.5;
         }
 
-        /* Block Nội Dung - Đã tinh chỉnh đẹp hơn */
+        /* Block Nội Dung - Viền Neon & Bóng mờ */
         .block {
-            background: rgba(30, 30, 35, 0.5);
-            border-radius: 18px;
-            padding: 20px;
-            margin-bottom: 16px;
+            background: rgba(30, 30, 38, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 22px;
+            margin-bottom: 18px;
             text-align: left;
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            border-left: 3px solid #555;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
-            overflow: hidden;
         }
 
+        /* Hiệu ứng Hover viền phát sáng (Neon Glow) */
         .block:hover {
-            border-left-color: #d1d1d1;
-            background: rgba(38, 38, 45, 0.7);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            border-color: rgba(176, 136, 249, 0.6);
+            background: rgba(40, 40, 50, 0.6);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(176, 136, 249, 0.15), 
+                        inset 0 0 15px rgba(176, 136, 249, 0.05);
         }
 
         .block h3 {
-            margin: 0 0 12px;
+            margin: 0 0 14px;
             color: #ffffff;
-            font-size: 15.5px;
+            font-size: 16px;
             font-weight: 700;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .block h3 i {
-            font-size: 15px;
-            color: #b0b0b0;
+            font-size: 18px;
+            color: #ff7eb3; /* Cute Pink */
+            text-shadow: 0 0 10px rgba(255, 126, 179, 0.6); /* Glow icon */
         }
 
         .block p {
             margin: 0;
-            font-size: 13.5px;
+            font-size: 14px;
             line-height: 1.7;
             text-align: justify;
-            color: #aaa;
+            color: #bbb;
             font-weight: 400;
         }
 
         .block p b {
-            color: #eee;
+            color: #fff;
             font-weight: 600;
         }
 
@@ -202,14 +215,14 @@
             padding-left: 0;
             list-style: none;
             margin: 0;
-            font-size: 13.5px;
-            line-height: 1.6;
-            color: #aaa;
+            font-size: 14px;
+            line-height: 1.8;
+            color: #bbb;
         }
 
         ul.contact-list li {
-            margin-bottom: 10px;
-            padding-left: 24px;
+            margin-bottom: 12px;
+            padding-left: 28px;
             position: relative;
         }
 
@@ -221,42 +234,54 @@
             position: absolute;
             left: 0;
             top: 4px;
-            color: #777;
-            font-size: 13px;
+            color: #b088f9;
+            font-size: 14px;
+            text-shadow: 0 0 8px rgba(176, 136, 249, 0.5);
         }
 
         ul.contact-list li b {
-            color: #e0e0e0;
+            color: #e5e5e5;
         }
 
         /* --- BUTTON LẤP LÁNH (SHIMMER EFFECT) --- */
         .social-buttons {
             display: flex;
             flex-direction: column;
-            gap: 14px;
-            margin-top: 25px;
+            gap: 16px;
+            margin-top: 30px;
         }
 
         .btn {
-            background: linear-gradient(135deg, rgba(45, 45, 52, 0.9), rgba(30, 30, 35, 0.9));
+            background: rgba(35, 35, 45, 0.7);
             color: #ffffff;
             text-decoration: none;
-            padding: 14px 20px;
-            border-radius: 16px;
+            padding: 16px 20px;
+            border-radius: 18px;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 15px;
             border: 1px solid rgba(255, 255, 255, 0.08);
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
         }
 
-        /* Hiệu ứng vệt sáng chạy liên tục (Shimmer) */
+        /* Màu thương hiệu mạng xã hội */
+        .icon-fb { color: #1877F2; font-size: 18px; }
+        .icon-gh { color: #ffffff; font-size: 18px; }
+        
+        /* Hiệu ứng 3D siêu ngầu của TikTok */
+        .icon-tt { 
+            color: #ffffff; 
+            font-size: 18px;
+            text-shadow: 2px 2px 0px #ff0050, -2px -2px 0px #00f2fe; 
+        }
+
+        /* Vệt sáng lấp lánh chéo qua nút */
         .btn::after {
             content: '';
             position: absolute;
@@ -264,9 +289,9 @@
             left: -150%;
             width: 50%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
             transform: skewX(-25deg);
-            animation: shimmer 3s infinite;
+            animation: shimmer 3.5s infinite;
         }
 
         @keyframes shimmer {
@@ -276,47 +301,50 @@
         }
 
         .btn:hover {
-            background: rgba(60, 60, 68, 1);
-            border-color: rgba(255, 255, 255, 0.3);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
-        }
-
-        .btn i {
-            font-size: 16px;
+            background: rgba(50, 50, 65, 0.9);
+            border-color: rgba(176, 136, 249, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(176, 136, 249, 0.2);
         }
 
         /* Footer Status */
         .footer-status {
-            margin-top: 25px;
-            font-size: 12px;
-            color: #666;
+            margin-top: 30px;
+            font-size: 13px;
+            color: #777;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
+            gap: 8px;
+            font-weight: 500;
         }
 
         .status-dot {
             width: 8px;
             height: 8px;
-            background-color: #777; /* Màu xám tĩnh lặng */
+            background-color: #00f5d4; /* Màu xanh ngọc phát sáng */
             border-radius: 50%;
             display: inline-block;
-            box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 10px #00f5d4, 0 0 20px #00f5d4;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+            100% { opacity: 1; transform: scale(1); }
         }
     </style>
 </head>
 <body>
 
     <div class="profile-card">
-        <!-- Ticker Dùng Icon Chibi/Monochrome -->
+        <!-- Ticker Dùng Icon Chibi/Monochrome Phát sáng -->
         <div class="ticker-wrap">
             <div class="ticker">
                 <div class="ticker-item"><i class="fa-solid fa-moon"></i> Trạng thái: <span>Cú đêm bận rộn ✦</span></div>
                 <div class="ticker-item"><i class="fa-solid fa-ghost"></i> Định vị: <span>TP. Hồ Chí Minh ✦</span></div>
                 <div class="ticker-item"><i class="fa-solid fa-paw"></i> Lối sống: <span>Tối giản & Tiện lợi ✦</span></div>
-                <!-- Lặp lại -->
                 <div class="ticker-item"><i class="fa-solid fa-moon"></i> Trạng thái: <span>Cú đêm bận rộn ✦</span></div>
                 <div class="ticker-item"><i class="fa-solid fa-ghost"></i> Định vị: <span>TP. Hồ Chí Minh ✦</span></div>
                 <div class="ticker-item"><i class="fa-solid fa-paw"></i> Lối sống: <span>Tối giản & Tiện lợi ✦</span></div>
@@ -341,28 +369,7 @@
                 <p>Xin chào! Mình là Thúy Kiều. Mình thích sự rành mạch, ngăn nắp trong công việc nhưng lại khá "chill" và ngẫu hứng trong cuộc sống thường ngày. Luôn tìm kiếm sự cân bằng giữa những deadline bận rộn và góc nhỏ bình yên của riêng mình.</p>
             </div>
 
-            <!-- Block 2: Sở thích -->
-            <div class="block">
-                <h3><i class="fa-solid fa-cat"></i> Không gian của người hướng nội</h3>
-                <p>Mình yêu sự bình yên trong thế giới của riêng mình. Ngủ nướng và ở nhà là chân ái! Thay vì la cà bên ngoài, mình tự tạo niềm vui qua việc cày phim, đọc truyện, nghe audio hoặc lăn vào bếp múa chảo, làm bánh.<br><br>
-                Mình có những "nghi thức" sinh hoạt rất bảo thủ: <b>ăn uống phải bật hoạt hình</b>, làm việc <b>bắt buộc có âm nhạc</b>, mỗi ngày một hũ sữa chua và đôi lúc xả stress bằng việc đi phá đảo vài vòng Coin Master.</p>
-            </div>
-
-            <!-- Block 3: Thói quen -->
-            <div class="block">
-                <h3><i class="fa-solid fa-moon"></i> "Cú đêm" & Hệ điều hành tiện lợi</h3>
-                <p>Vì tính chất học tập và công việc luôn gắn với các tool quản lý tiến độ, mình hình thành thói quen <b>"cày đêm" và dậy trễ</b>. Đi lại đến trường HUFLIT thì cứ phó mặc cho các anh tài xế Grab, Be.<br><br>
-                Mình ưa chuộng lối sống tối ưu hóa: thanh toán một chạm qua MoMo, ShopeePay và luôn biết tính toán chi li các gói deal thành viên. Sống nhanh gọn bên ngoài, nhưng làm việc thì phải luôn có quy trình ngăn nắp.</p>
-            </div>
-
-            <!-- Block 4: Tính cách -->
-            <div class="block">
-                <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Nóng như kem nhưng thực tế</h3>
-                <p>Thú thật, khi ngập trong deadline, giao diện của mình tự động treo biển <b>"xin đừng làm phiền"</b>, khá cọc và dễ quạu. Nhưng ẩn sau cái vỏ bọc áp lực ấy, mình là người độc lập, thực tế và rất biết tự chăm sóc bản thân.<br><br>
-                Chỉ cần xong việc, được cuộn tròn trong phòng, nhâm nhi món ngon tự làm và xem phim, mình sẽ sạc lại đủ 100% pin năng lượng tích cực.</p>
-            </div>
-
-            <!-- Block 5: Contact -->
+            <!-- Block 2: Contact (Đã di chuyển lên trên) -->
             <div class="block">
                 <h3><i class="fa-regular fa-address-book"></i> Thông tin liên hệ</h3>
                 <ul class="contact-list">
@@ -373,15 +380,42 @@
                 </ul>
             </div>
 
-            <!-- Các nút bấm lấp lánh (Shimmer Effect) -->
+            <!-- Block 3: Sở thích -->
+            <div class="block">
+                <h3><i class="fa-solid fa-cat"></i> Không gian của người hướng nội</h3>
+                <p>Mình yêu sự bình yên trong thế giới của riêng mình. Ngủ nướng và ở nhà là chân ái! Thay vì la cà bên ngoài, mình tự tạo niềm vui qua việc cày phim, đọc truyện, nghe audio hoặc lăn vào bếp múa chảo, làm bánh.<br><br>
+                Mình có những "nghi thức" sinh hoạt rất bảo thủ: <b>ăn uống phải bật hoạt hình</b>, làm việc <b>bắt buộc có âm nhạc</b>, mỗi ngày một hũ sữa chua và đôi lúc xả stress bằng việc đi phá đảo vài vòng Coin Master.</p>
+            </div>
+
+            <!-- Block 4: Thói quen -->
+            <div class="block">
+                <h3><i class="fa-solid fa-moon"></i> "Cú đêm" & Hệ điều hành tiện lợi</h3>
+                <p>Vì tính chất học tập và công việc, mình hình thành thói quen <b>"cày đêm" và dậy trễ</b>. Đi lại đến trường HUFLIT thì cứ phó mặc cho các anh tài xế Grab, Be.<br><br>
+                Mình ưa chuộng lối sống tối ưu hóa: thanh toán một chạm qua ví điện tử và luôn biết tính toán chi li các gói deal. Sống nhanh gọn bên ngoài, nhưng làm việc thì phải luôn có quy trình.</p>
+            </div>
+
+            <!-- Block 5: Tính cách -->
+            <div class="block">
+                <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Nóng như kem nhưng thực tế</h3>
+                <p>Thú thật, khi ngập trong deadline, giao diện của mình tự động treo biển <b>"xin đừng làm phiền"</b>. Nhưng ẩn sau cái vỏ bọc áp lực ấy, mình là người độc lập, thực tế và rất biết tự chăm sóc bản thân.<br><br>
+                Chỉ cần xong việc, được cuộn tròn trong phòng, nhâm nhi món ngon tự làm và xem phim, mình sẽ sạc lại đủ 100% năng lượng tích cực.</p>
+            </div>
+
+            <!-- Các nút bấm MXH lấp lánh chuẩn màu -->
             <div class="social-buttons">
-                <a href="https://www.facebook.com/share/1GPUCeFit1/" target="_blank" class="btn"><i class="fa-brands fa-facebook"></i> Kết nối Facebook</a>
-                <a href="https://www.tiktok.com/@nguyenkieu077?_r=1&_t=ZS-99Af3ZfH9nh" target="_blank" class="btn"><i class="fa-brands fa-tiktok"></i> Ghé thăm TikTok</a>
-                <a href="https://github.com/thizkieu" target="_blank" class="btn"><i class="fa-brands fa-github"></i> Góc Đồ Án GitHub</a>
+                <a href="https://www.facebook.com/share/1GPUCeFit1/" target="_blank" class="btn">
+                    <i class="fa-brands fa-facebook icon-fb"></i> Kết nối Facebook
+                </a>
+                <a href="https://www.tiktok.com/@nguyenkieu077?_r=1&_t=ZS-99Af3ZfH9nh" target="_blank" class="btn">
+                    <i class="fa-brands fa-tiktok icon-tt"></i> Ghé thăm TikTok
+                </a>
+                <a href="https://github.com/thizkieu" target="_blank" class="btn">
+                    <i class="fa-brands fa-github icon-gh"></i> Góc Đồ Án GitHub
+                </a>
             </div>
 
             <div class="footer-status">
-                <span class="status-dot"></span> Profile active • Thúy Kiều's Space
+                <span class="status-dot"></span> Không gian của Kiều đang hoạt động
             </div>
         </div>
     </div>
