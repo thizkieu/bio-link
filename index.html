@@ -7,6 +7,8 @@
     <!-- Font Quicksand & Icons FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Thư viện tạo QR Code tự động -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     
     <style>
         * {
@@ -16,7 +18,6 @@
         }
 
         body {
-            /* Nền tối bí ẩn */
             background: radial-gradient(circle at top right, #1f1c2c 0%, #000000 70%, #0a0a0a 100%);
             font-family: 'Quicksand', sans-serif;
             color: #d1d1d1;
@@ -28,7 +29,7 @@
             overflow-x: hidden;
         }
 
-        /* Profile Card - Glassmorphism sang trọng */
+        /* Profile Card - Glassmorphism */
         .profile-card {
             background: rgba(20, 20, 25, 0.7);
             backdrop-filter: blur(20px);
@@ -43,7 +44,7 @@
             position: relative;
         }
 
-        /* Ticker Chạy Chữ - Phát sáng nhẹ */
+        /* Ticker Chạy Chữ */
         .ticker-wrap {
             width: 100%;
             background: rgba(10, 10, 12, 0.8);
@@ -72,10 +73,7 @@
             text-shadow: 0 0 8px rgba(176, 136, 249, 0.6);
         }
 
-        .ticker-item span {
-            color: #ffffff;
-            font-weight: 600;
-        }
+        .ticker-item span { color: #ffffff; font-weight: 600; }
 
         @keyframes marquee {
             0% { transform: translateX(0); }
@@ -126,9 +124,7 @@
             transition: transform 0.5s ease;
         }
 
-        .avatar-wrapper:hover .avatar {
-            transform: scale(1.05) rotate(5deg);
-        }
+        .avatar-wrapper:hover .avatar { transform: scale(1.05) rotate(5deg); }
 
         /* Section Info */
         .info {
@@ -141,7 +137,6 @@
             font-size: 26px;
             font-weight: 700;
             letter-spacing: 0.5px;
-            /* Gradient Text lấp lánh */
             background: linear-gradient(to right, #ffffff, #ffb8d1, #b088f9);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -157,7 +152,7 @@
             line-height: 1.5;
         }
 
-        /* Block Nội Dung - Viền Neon & Bóng mờ */
+        /* Block Nội Dung - Viền Neon */
         .block {
             background: rgba(30, 30, 38, 0.4);
             backdrop-filter: blur(10px);
@@ -171,7 +166,6 @@
             position: relative;
         }
 
-        /* Hiệu ứng Hover viền phát sáng (Neon Glow) */
         .block:hover {
             border-color: rgba(176, 136, 249, 0.6);
             background: rgba(40, 40, 50, 0.6);
@@ -192,8 +186,8 @@
 
         .block h3 i {
             font-size: 18px;
-            color: #ff7eb3; /* Cute Pink */
-            text-shadow: 0 0 10px rgba(255, 126, 179, 0.6); /* Glow icon */
+            color: #ff7eb3;
+            text-shadow: 0 0 10px rgba(255, 126, 179, 0.6);
         }
 
         .block p {
@@ -202,15 +196,11 @@
             line-height: 1.7;
             text-align: justify;
             color: #bbb;
-            font-weight: 400;
         }
 
-        .block p b {
-            color: #fff;
-            font-weight: 600;
-        }
+        .block p b { color: #fff; font-weight: 600; }
 
-        /* Danh Sách Contact */
+        /* Contact List */
         ul.contact-list {
             padding-left: 0;
             list-style: none;
@@ -226,9 +216,7 @@
             position: relative;
         }
 
-        ul.contact-list li:last-child {
-            margin-bottom: 0;
-        }
+        ul.contact-list li:last-child { margin-bottom: 0; }
 
         ul.contact-list li i.list-icon {
             position: absolute;
@@ -239,11 +227,9 @@
             text-shadow: 0 0 8px rgba(176, 136, 249, 0.5);
         }
 
-        ul.contact-list li b {
-            color: #e5e5e5;
-        }
+        ul.contact-list li b { color: #e5e5e5; }
 
-        /* --- BUTTON LẤP LÁNH (SHIMMER EFFECT) --- */
+        /* Social Buttons */
         .social-buttons {
             display: flex;
             flex-direction: column;
@@ -268,20 +254,17 @@
             overflow: hidden;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            cursor: pointer;
         }
 
-        /* Màu thương hiệu mạng xã hội */
         .icon-fb { color: #1877F2; font-size: 18px; }
         .icon-gh { color: #ffffff; font-size: 18px; }
-        
-        /* Hiệu ứng 3D siêu ngầu của TikTok */
         .icon-tt { 
             color: #ffffff; 
             font-size: 18px;
             text-shadow: 2px 2px 0px #ff0050, -2px -2px 0px #00f2fe; 
         }
 
-        /* Vệt sáng lấp lánh chéo qua nút */
         .btn::after {
             content: '';
             position: absolute;
@@ -307,7 +290,110 @@
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(176, 136, 249, 0.2);
         }
 
-        /* Footer Status */
+        /* --- NÚT BẤM HIỂN THỊ QR CODE (NEON BUTTON) --- */
+        .btn-qr {
+            background: linear-gradient(135deg, rgba(176, 136, 249, 0.2), rgba(255, 126, 179, 0.2));
+            border: 1px solid rgba(176, 136, 249, 0.5);
+            color: #ffb8d1;
+        }
+        .btn-qr:hover {
+            background: linear-gradient(135deg, rgba(176, 136, 249, 0.4), rgba(255, 126, 179, 0.4));
+            color: #ffffff;
+        }
+
+        /* --- UI MODAL POPUP MÃ QR --- */
+        .qr-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(15px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.4s ease;
+        }
+
+        .qr-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .qr-card {
+            background: rgba(25, 25, 32, 0.9);
+            border: 1px solid rgba(176, 136, 249, 0.4);
+            border-radius: 24px;
+            padding: 30px;
+            text-align: center;
+            max-width: 340px;
+            width: 90%;
+            box-shadow: 0 0 40px rgba(176, 136, 249, 0.3);
+            position: relative;
+            transform: scale(0.8);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .qr-modal.active .qr-card {
+            transform: scale(1);
+        }
+
+        .qr-card h2 {
+            font-size: 20px;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .qr-card p {
+            font-size: 13px;
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        /* Khung chứa mã QR + Hiệu ứng Laser quét */
+        .qr-box-wrapper {
+            position: relative;
+            display: inline-block;
+            padding: 15px;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+        }
+
+        .qr-laser {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #b088f9, transparent);
+            box-shadow: 0 0 8px #b088f9;
+            animation: scan 2.5s ease-in-out infinite;
+        }
+
+        @keyframes scan {
+            0% { top: 0; }
+            50% { top: 100%; }
+            100% { top: 0; }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 18px;
+            color: #888;
+            font-size: 20px;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .close-btn:hover { color: #fff; }
+
         .footer-status {
             margin-top: 30px;
             font-size: 13px;
@@ -316,30 +402,26 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            font-weight: 500;
         }
 
         .status-dot {
             width: 8px;
             height: 8px;
-            background-color: #00f5d4; /* Màu xanh ngọc phát sáng */
+            background-color: #00f5d4;
             border-radius: 50%;
-            display: inline-block;
-            box-shadow: 0 0 10px #00f5d4, 0 0 20px #00f5d4;
+            box-shadow: 0 0 10px #00f5d4;
             animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
-            0% { opacity: 1; transform: scale(1); }
+            0%, 100% { opacity: 1; transform: scale(1); }
             50% { opacity: 0.5; transform: scale(1.2); }
-            100% { opacity: 1; transform: scale(1); }
         }
     </style>
 </head>
 <body>
 
     <div class="profile-card">
-        <!-- Ticker Dùng Icon Chibi/Monochrome Phát sáng -->
         <div class="ticker-wrap">
             <div class="ticker">
                 <div class="ticker-item"><i class="fa-solid fa-moon"></i> Trạng thái: <span>Cú đêm bận rộn ✦</span></div>
@@ -363,13 +445,11 @@
             <h1>Nguyễn Thị Thúy Kiều</h1>
             <div class="tagline">Sinh viên | Hướng nội part-time & Tín đồ hệ tiện lợi</div>
 
-            <!-- Block 1: Intro ngắn gọn -->
             <div class="block">
                 <h3><i class="fa-solid fa-leaf"></i> Về mình</h3>
                 <p>Xin chào! Mình là Thúy Kiều. Mình thích sự rành mạch, ngăn nắp trong công việc nhưng lại khá "chill" và ngẫu hứng trong cuộc sống thường ngày. Luôn tìm kiếm sự cân bằng giữa những deadline bận rộn và góc nhỏ bình yên của riêng mình.</p>
             </div>
 
-            <!-- Block 2: Contact (Đã di chuyển lên trên) -->
             <div class="block">
                 <h3><i class="fa-regular fa-address-book"></i> Thông tin liên hệ</h3>
                 <ul class="contact-list">
@@ -380,29 +460,31 @@
                 </ul>
             </div>
 
-            <!-- Block 3: Sở thích -->
             <div class="block">
                 <h3><i class="fa-solid fa-cat"></i> Không gian của người hướng nội</h3>
                 <p>Mình yêu sự bình yên trong thế giới của riêng mình. Ngủ nướng và ở nhà là chân ái! Thay vì la cà bên ngoài, mình tự tạo niềm vui qua việc cày phim, đọc truyện, nghe audio hoặc lăn vào bếp múa chảo, làm bánh.<br><br>
                 Mình có những "nghi thức" sinh hoạt rất bảo thủ: <b>ăn uống phải bật hoạt hình</b>, làm việc <b>bắt buộc có âm nhạc</b>, mỗi ngày một hũ sữa chua và đôi lúc xả stress bằng việc đi phá đảo vài vòng Coin Master.</p>
             </div>
 
-            <!-- Block 4: Thói quen -->
             <div class="block">
                 <h3><i class="fa-solid fa-moon"></i> "Cú đêm" & Hệ điều hành tiện lợi</h3>
                 <p>Vì tính chất học tập và công việc, mình hình thành thói quen <b>"cày đêm" và dậy trễ</b>. Đi lại đến trường HUFLIT thì cứ phó mặc cho các anh tài xế Grab, Be.<br><br>
                 Mình ưa chuộng lối sống tối ưu hóa: thanh toán một chạm qua ví điện tử và luôn biết tính toán chi li các gói deal. Sống nhanh gọn bên ngoài, nhưng làm việc thì phải luôn có quy trình.</p>
             </div>
 
-            <!-- Block 5: Tính cách -->
             <div class="block">
                 <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Nóng như kem nhưng thực tế</h3>
                 <p>Thú thật, khi ngập trong deadline, giao diện của mình tự động treo biển <b>"xin đừng làm phiền"</b>. Nhưng ẩn sau cái vỏ bọc áp lực ấy, mình là người độc lập, thực tế và rất biết tự chăm sóc bản thân.<br><br>
                 Chỉ cần xong việc, được cuộn tròn trong phòng, nhâm nhi món ngon tự làm và xem phim, mình sẽ sạc lại đủ 100% năng lượng tích cực.</p>
             </div>
 
-            <!-- Các nút bấm MXH lấp lánh chuẩn màu -->
+            <!-- Các nút bấm MXH & Nút QR -->
             <div class="social-buttons">
+                <!-- Nút bật QR Code -->
+                <button class="btn btn-qr" onclick="openQR()">
+                    <i class="fa-solid fa-qrcode"></i> Mã QR Kết Nối Nhanh
+                </button>
+
                 <a href="https://www.facebook.com/share/1GPUCeFit1/" target="_blank" class="btn">
                     <i class="fa-brands fa-facebook icon-fb"></i> Kết nối Facebook
                 </a>
@@ -420,5 +502,47 @@
         </div>
     </div>
 
+    <!-- POPUP MA QR CODE -->
+    <div class="qr-modal" id="qrModal" onclick="closeQR(event)">
+        <div class="qr-card">
+            <i class="fa-solid fa-xmark close-btn" onclick="toggleModal(false)"></i>
+            <h2><i class="fa-solid fa-qrcode" style="color: #b088f9;"></i> QR Profile</h2>
+            <p>Quét để mở nhanh Bio của Thúy Kiều</p>
+            
+            <div class="qr-box-wrapper">
+                <div class="qr-laser"></div>
+                <div id="qrcode"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tự động tạo mã QR từ URL hiện tại của trang (hoặc đổi thành link web tùy thích)
+        const qrContainer = document.getElementById("qrcode");
+        new QRCode(qrContainer, {
+            text: window.location.href,
+            width: 180,
+            height: 180,
+            colorDark: "#141419",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+
+        function openQR() {
+            document.getElementById('qrModal').classList.add('active');
+        }
+
+        function toggleModal(show) {
+            const modal = document.getElementById('qrModal');
+            if (show) modal.classList.add('active');
+            else modal.classList.remove('active');
+        }
+
+        function closeQR(e) {
+            if (e.target.id === 'qrModal') {
+                toggleModal(false);
+            }
+        }
+    </script>
 </body>
 </html>
