@@ -7,8 +7,6 @@
     <!-- Font Quicksand & Icons FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Thư viện tạo QR Code tự động -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     
     <style>
         * {
@@ -377,20 +375,13 @@
             display: inline-block;
         }
 
-        /* ẢNH ĐẠI DIỆN Ở GIỮA MÃ QR */
-        .qr-logo {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: 3px solid #ffffff;
-            box-shadow: 0 0 15px rgba(176, 136, 249, 0.8), 
-                        0 0 5px rgba(255, 126, 179, 0.8);
+        /* ẢNH MÃ QR CẬP NHẬT TRỰC TIẾP */
+        .qr-img {
+            width: 190px;
+            height: 190px;
+            display: block;
+            border-radius: 10px;
             object-fit: cover;
-            z-index: 10;
         }
 
         /* Hiệu ứng Laser quét ngầu */
@@ -548,28 +539,14 @@
             <div class="qr-box-wrapper">
                 <div class="qr-laser"></div>
                 <div class="qr-container-inner">
-                    <!-- Nơi tạo mã QR -->
-                    <div id="qrcode"></div>
-                    <!-- Ảnh cá nhân chèn chính giữa mã QR -->
-                    <img src="https://i.postimg.cc/HjNg8ndT/1787644112048-205882546888002341-8169423371314609313-089791827ad52071a6bbb6b1db22485c.jpg" alt="Logo QR" class="qr-logo">
+                    <!-- Hiển thị trực tiếp ảnh mã QR mới -->
+                    <img src="https://i.postimg.cc/vTVJv990/qrcode-ai-8730c470-c81c-4b49-aa05-8baf9a296592.png" alt="Mã QR cá nhân" class="qr-img">
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Cấu hình mã QR cực nét và ngầu
-        const qrContainer = document.getElementById("qrcode");
-        new QRCode(qrContainer, {
-            text: window.location.href, // Thay link tại đây nếu muốn trỏ đi đâu đó cụ thể
-            width: 190, // Tăng kích thước chút xíu
-            height: 190,
-            colorDark: "#1a0b2e", // Màu QR tím than siêu tối (bí ẩn)
-            colorLight: "#ffffff",
-            // Quan trọng: Sử dụng CorrectLevel.H (Mức High) để khi đè ảnh lên chính giữa thì mã vẫn QUÉT ĐƯỢC BÌNH THƯỜNG
-            correctLevel: QRCode.CorrectLevel.H 
-        });
-
         function openQR() {
             document.getElementById('qrModal').classList.add('active');
         }
