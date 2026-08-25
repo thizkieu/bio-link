@@ -70,83 +70,6 @@
         .ticker-item i {
             color: #b088f9;
             margin-right: 6px;
-            text-shadow: 0 0 8px rgba(176, 136, 24Để đáp ứng yêu cầu của bạn: một mã QR mang phong cách **bí ẩn, cá tính, cool ngầu nhưng vẫn có nét cute**, đồng thời **chèn ảnh cá nhân của bạn vào chính giữa mã QR**, mình đã sử dụng thủ thuật xếp chồng (overlay) CSS kết hợp với hiệu ứng neon và laser quét cực kỳ ấn tượng.
-
-Dưới đây là toàn bộ mã đã được nâng cấp. Bạn chỉ cần copy và thay thế toàn bộ mã cũ:
-
-```html
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bio Link | Nguyễn Thị Thúy Kiều</title>
-    <!-- Font Quicksand & Icons FontAwesome -->
-    <link href="[https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap](https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap)" rel="stylesheet">
-    <link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css)">
-    <!-- Thư viện tạo QR Code tự động -->
-    <script src="[https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js](https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js)"></script>
-    
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            background: radial-gradient(circle at top right, #1f1c2c 0%, #000000 70%, #0a0a0a 100%);
-            font-family: 'Quicksand', sans-serif;
-            color: #d1d1d1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* Profile Card - Glassmorphism */
-        .profile-card {
-            background: rgba(20, 20, 25, 0.7);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 28px;
-            width: 100%;
-            max-width: 460px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9),
-                        inset 0 1px 2px rgba(255, 255, 255, 0.15);
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-        }
-
-        /* Ticker Chạy Chữ */
-        .ticker-wrap {
-            width: 100%;
-            background: rgba(10, 10, 12, 0.8);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            overflow: hidden;
-            white-space: nowrap;
-            padding: 10px 0;
-            font-size: 13px;
-            color: #999;
-        }
-
-        .ticker {
-            display: inline-block;
-            animation: marquee 20s linear infinite;
-        }
-
-        .ticker-item {
-            display: inline-block;
-            padding: 0 20px;
-            font-weight: 500;
-        }
-
-        .ticker-item i {
-            color: #b088f9;
-            margin-right: 6px;
             text-shadow: 0 0 8px rgba(176, 136, 249, 0.6);
         }
 
@@ -460,10 +383,10 @@ Dưới đây là toàn bộ mã đã được nâng cấp. Bạn chỉ cần co
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 50px; /* Kích thước ảnh 50x50 */
+            width: 50px;
             height: 50px;
             border-radius: 50%;
-            border: 3px solid #ffffff; /* Viền trắng để máy quét dễ nhận diện */
+            border: 3px solid #ffffff;
             box-shadow: 0 0 15px rgba(176, 136, 249, 0.8), 
                         0 0 5px rgba(255, 126, 179, 0.8);
             object-fit: cover;
@@ -480,7 +403,7 @@ Dưới đây là toàn bộ mã đã được nâng cấp. Bạn chỉ cần co
             background: linear-gradient(90deg, transparent, #ff7eb3, #b088f9, transparent);
             box-shadow: 0 0 15px #b088f9, 0 0 20px #ff7eb3;
             animation: scan 2.5s ease-in-out infinite;
-            z-index: 20; /* Laser quét lên trên cả ảnh */
+            z-index: 20;
         }
 
         @keyframes scan {
@@ -550,7 +473,7 @@ Dưới đây là toàn bộ mã đã được nâng cấp. Bạn chỉ cần co
 
         <div class="avatar-container">
             <div class="avatar-wrapper">
-                <img src="[https://i.postimg.cc/HjNg8ndT/1787644112048-205882546888002341-8169423371314609313-089791827ad52071a6bbb6b1db22485c.jpg](https://i.postimg.cc/HjNg8ndT/1787644112048-205882546888002341-8169423371314609313-089791827ad52071a6bbb6b1db22485c.jpg)" alt="Nguyễn Thúy Kiều" class="avatar">
+                <img src="https://i.postimg.cc/HjNg8ndT/1787644112048-205882546888002341-8169423371314609313-089791827ad52071a6bbb6b1db22485c.jpg" alt="Nguyễn Thúy Kiều" class="avatar">
             </div>
         </div>
 
@@ -598,13 +521,13 @@ Dưới đây là toàn bộ mã đã được nâng cấp. Bạn chỉ cần co
                     <i class="fa-solid fa-qrcode"></i> Mã QR Kết Nối Nhanh
                 </button>
 
-                <a href="[https://www.facebook.com/share/1GPUCeFit1/](https://www.facebook.com/share/1GPUCeFit1/)" target="_blank" class="btn">
+                <a href="https://www.facebook.com/share/1GPUCeFit1/" target="_blank" class="btn">
                     <i class="fa-brands fa-facebook icon-fb"></i> Kết nối Facebook
                 </a>
-                <a href="[https://www.tiktok.com/@nguyenkieu077?_r=1&_t=ZS-99Af3ZfH9nh](https://www.tiktok.com/@nguyenkieu077?_r=1&_t=ZS-99Af3ZfH9nh)" target="_blank" class="btn">
+                <a href="https://www.tiktok.com/@nguyenkieu077?_r=1&_t=ZS-99Af3ZfH9nh" target="_blank" class="btn">
                     <i class="fa-brands fa-tiktok icon-tt"></i> Ghé thăm TikTok
                 </a>
-                <a href="[https://github.com/thizkieu](https://github.com/thizkieu)" target="_blank" class="btn">
+                <a href="https://github.com/thizkieu" target="_blank" class="btn">
                     <i class="fa-brands fa-github icon-gh"></i> Góc Đồ Án GitHub
                 </a>
             </div>
@@ -628,7 +551,7 @@ Dưới đây là toàn bộ mã đã được nâng cấp. Bạn chỉ cần co
                     <!-- Nơi tạo mã QR -->
                     <div id="qrcode"></div>
                     <!-- Ảnh cá nhân chèn chính giữa mã QR -->
-                    <img src="[https://i.postimg.cc/HjNg8ndT/1787644112048-205882546888002341-8169423371314609313-089791827ad52071a6bbb6b1db22485c.jpg](https://i.postimg.cc/HjNg8ndT/1787644112048-205882546888002341-8169423371314609313-089791827ad52071a6bbb6b1db22485c.jpg)" alt="Logo QR" class="qr-logo">
+                    <img src="https://i.postimg.cc/HjNg8ndT/1787644112048-205882546888002341-8169423371314609313-089791827ad52071a6bbb6b1db22485c.jpg" alt="Logo QR" class="qr-logo">
                 </div>
             </div>
         </div>
